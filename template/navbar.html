@@ -1,0 +1,193 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'images/LN_White.png' %}">
+    </a>
+
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav d-flex gap-4">
+        <li class="nav-item">
+          <a class="nav-link nav-link-head" href="#">Stakes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-head" href="#about-shirley">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-head" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-head" href="#books">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-head" href="#">Media</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-head" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <div class="d-none d-lg-block ms-auto">
+      <button type="button" class="btn get-touch-nav" data-bs-toggle="modal" data-bs-target="#exampleModal">Get in Touch</button>
+    </div>
+
+    <div class="d-lg-none ms-auto">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!--OFFCANVAS-->
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+    <a href="/">
+      <img class="logo-green-off" src="{% static 'images/LN_grey.png' %}" alt="AI Venture Catalyst">
+    </a>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav offcanvas-navbar-nav justify-content-center flex-grow-1 pe-3">
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="#">Stakes</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="#about-shirley">About</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="#">Services</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="#books">Books</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="#">Media</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="#">Contact</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item-btn mt-4">
+        <button class="btn get-btn-nav-off" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact</button>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer d-flex justify-content-center">
+    <p class="footer-ai-venture text-white">© 2025 AI Venture Catalyst. All rights reserved.</p>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <div>
+          <h2 class="contact-section-title">Courage Begins With a Conversation</h2>
+          <p class="contact-section-subtitle">Backbone builds growth. Caving costs billions. If your leadership team is
+            playing defense, your business is already bleeding. Let’s talk about the future you intend to build.
+          </p>
+        </div>
+        <button type="button" class="btn-close custom-close-icon" data-bs-dismiss="modal" aria-label="Close">
+          <img src="{% static 'icons/icon-park-outline_close-one.svg' %}" alt="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="contact-us-section" style="margin: 0;">
+        <div class="container-fluid">
+
+            <div class="form-section" style="margin: 0;">
+                <form class="row g-5" method="post" action="{% url 'LNapp:contact_form_submit' %}">
+                    {% csrf_token %}
+                  <div class="col-md-6">
+                    <label for="fullname" class="form-label contact-form-label">FULL NAME</label>
+                    <input type="text" name="fullname" class="form-control contact-form-control" id="fullname" placeholder="ENTER YOUR NAME" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label contact-form-label">PHONE NUMBER</label>
+                    <input type="tel" name="phone" class="form-control contact-form-control" id="phone" placeholder="xxx xxx xxxx" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="email" class="form-label contact-form-label">EMAIL ADDRESS</label>
+                    <input type="email" name="email" class="form-control contact-form-control" id="email" placeholder="xyz@example.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="revenue" class="form-label contact-form-label">SERVICE NEEDED</label>
+                    <select name="revenue" class="form-select contact-form-label-1" aria-label="Default select example" id="revenue">
+                        <option selected>SELECT A SERVICE</option>
+                        <option value="Under 1M">Under 1M</option>
+                        <option value="1M-5M">1M - 5M</option>
+                        <option value="5M+">5M+</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="referral" class="form-label contact-form-label">WHo referred you?</label>
+                    <select name="referral" class="form-select contact-form-label-1" aria-label="Default select example" id="referral">
+                        <option selected disabled>HOW DID YOU HEAR ABOUT US?</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="Google">Google</option>
+                        <option value="Friend">Friend</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <textarea name="message" class="form-control contact-form-control" placeholder="TELL US ABOUT YOU!" id="floatingTextarea2" style="height: 100px" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check contact-call-btn">
+                      <input class="form-check-input" type="checkbox" id="agreement_excerpt" name="agreement_excerpt">
+                      <label class="form-check-label" for="agreement_excerpt">
+                        REQUEST A BOOK EXCERPT
+                      </label>
+                    </div>
+                    <div class="form-check contact-call-btn">
+                      <input class="form-check-input" type="checkbox" id="agreement_privacy" name="agreement_privacy">
+                      <label class="form-check-label" for="agreement_privacy">
+                        I agree to receive communications from LEADER NAVIGATOR regarding my inquiry and understand that my information will be kept confidential.
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 align-items-center">
+                    <button type="submit" class="btn get-touch-nav">Get in Touch</button>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="contact-div-main">
+                        <div class="social-contact-div">
+                         <a href="#" target="_blank"><img src="{% static 'icons/instagram1.svg' %}"> </a>
+                         <a href="#" target="_blank"><img src="{% static 'icons/facebook1.svg' %}"> </a>
+                         <a href="#" target="_blank"><img src="{% static 'icons/linkedin1.svg' %}"> </a>
+                         <a href="#" target="_blank"><img src="{% static 'icons/youtube1.svg' %}"> </a>
+                        </div>
+                        <div class="contact-div-2 mt-4">
+                          <a href="#"><p>Terms and conditions</p></a><p>|</p>
+                          <a href="#"><p>Privacy Policy</p></a>
+                        </div>
+                    </div>
+                  </div>
+                </form>
+
+                {% if messages %}
+                  <div class="container mt-3">
+                    {% for message in messages %}
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+            </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>

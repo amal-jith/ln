@@ -1,0 +1,731 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Leader Navigator{% endblock %}
+
+    {% block content %}
+
+        <section class="header" style="background-image: linear-gradient(to top, rgba(21,21,21,1.5), transparent), url('{% static 'images/Footer.png' %}');">
+            <div class="container">
+                <div class="" style="padding: 3.9rem 0;">
+                    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-5 align-items-center">
+                        <div class="col-md-7">
+                            <div class="card border-0 bg-transparent">
+                                <div class="card-body p-0">
+                                    <h1 class="header-text">How Courageous Leaders Win in an Age of Backlash</h1>
+                                    <p class="header-text-1">Backbone Builds Growth. Silence Bleeds Trust, Talent, and Innovation.</p>
+                                    <p class="header-text-2">The world has changed—and so has the risk of staying silent. Leaders now face weaponized disinformation,
+                                        cultural intimidation, and organized backlash. Playing it safe is no longer safe. I equip executives to stand strong,
+                                        defend trust, and protect long‑term business growth when the cultural crossfire is fiercest.
+                                    </p>
+
+                                    <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+                                        <button type="button" class="btn btn-lg custom-btn-solid" data-bs-toggle="modal" data-bs-target="#exampleModal">Get in Touch</button>
+                                        <button type="button" class="btn btn-lg custom-btn-outline">Leadership Solutions</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex flex-column align-items-end">
+                            <div class="video-card-container ">
+                                <video id="headerVideo" class="card-video-bg" autoplay muted loop playsinline preload="none" poster="{% static 'images/video-poster.jpg' %}">
+                                    <source src="{% static 'videos/sample.mp4' %}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+                                <div id="videoControl" class="video-overlay-icon paused-icon" data-pause-src="{% static 'images/pause.png' %}" data-play-src="{% static 'images/play.png' %}">
+                                    <img id="controlIcon" src="{% static 'images/pause.png' %}" alt="Pause">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="number-section-2" style="background-color: #151515;">
+
+            <div class="container">
+                <p class="main-text-2">IMPORTANT!</p>
+                <h2 class="main-text-1">Silence Isn’t Safe. It’s Business Sabotage.</h2>
+                <p class="main-text-3">This isn’t culture war theatre—it’s business risk. Retreat destroys trust, bleeds talent,
+                    and slows innovation. Clarity and courage, by contrast, earn loyalty and stabilize performance.
+                </p>
+                <div class="list-section-1">
+                    <ul class="investor-list">
+                        <li>Skilled immigrants start over half of America’s billion-dollar companies and nearly two-thirds of top AI firms.</li>
+                        <li>High-trust companies outperform low-trust by 2.5x revenue growth.</li>
+                        <li>Diverse executive teams outperform peers by 39% in profitability.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="owl-carousel owl-theme my-custom-carousel">
+                {% for case in case_studies %}
+                <div class="item">
+                    <div class="card case-study-card">
+                      <div class="case-study-img" style="background-image: url('{{ case.image.url }}');"></div>
+                      <div class="card-body">
+                        <h5 class="case-text-1">{{ case.title }}</h5>
+                        <p class="case-text-2">{{ case.short_description }}</p>
+
+                        <a data-bs-toggle="modal" data-bs-target="#caseModal{{ case.id }}" class="case-link">
+                            <img src="{% static 'icons/icon1.svg' %}" class="case-link-img">
+                            <p class="case-link-text">Read the case study</p>
+                        </a>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- move modals here -->
+            {% for case in case_studies %}
+            <div class="modal fade" id="caseModal{{ case.id }}" tabindex="-1" aria-labelledby="caseModalLabel{{ case.id }}" aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content" style="background: #151515;">
+                  <div class="modal-header border-0">
+                    <button type="button" class="btn-close custom-close-icon" data-bs-dismiss="modal" aria-label="Close">
+                      <img src="{% static 'icons/icon-park-outline_close-one.svg' %}" alt="Close">
+                    </button>
+                  </div>
+                  <div class="modal-body book-modal">
+                    <div class="row row-cols-1 row-cols-md-2 g-5">
+                      <div class="col-md-8">
+                        <h2 class="text-601 text-white">{{ case.title }}</h2>
+                        <p class="text-602 text-white">{{ case.full_description }}</p>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="books-img" style="background-image: url('{{ case.image.url }}');"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="container mt-5">
+                <p class="text-777"><span>1</span> National Foundation for American Policy, Immigrant Entrepreneurs and U.S. Billion-Dollar Companies, 2023. <span>2</span> Edelman Trust Barometer, 2024 <span>3</span> McKinsey & Company, Diversity Wins: How Inclusion Matters, 2023</p>
+            </div>
+
+        </section>
+
+        <section class="number-section-1" id="about-shirley">
+
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col-md-8">
+                        <div class="card-body p-0">
+                            <p class="about-subtext-1">THE WHO AM I</p>
+                            <h2 class="about-main-text">
+                                I’m <span>Shirley Engelmeier</span>, Founder of Leader Navigator™. With more than 25 years at the intersection
+                                of leadership, culture and change I pivoted to Leadership based on the dire needs of cultural backlash. My work
+                                blends operational grit, executive-level strategy and a fearless commitment to the truth in a polarized world.
+                            </h2>
+                            <button type="button" class="btn btn-lg custom-btn-solid-1 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Get in Touch</button>
+
+                            <div class="list-section-1 mt-4">
+                                <ul class="investor-list">
+                                    <li>Former Frito‑Lay sales & operations leader (ranked 6th of 26 managers).</li>
+                                    <li>Founded InclusionINC (2001) to make inclusion a competitive business strategy.</li>
+                                    <li>Built Inclusive Leader 360® and Learning Over Time® behavior‑change frameworks.</li>
+                                    <li>Trained 22,000+ leaders in the last five years; featured on TEDx, in Forbes & Inc.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card about-img-card">
+                            <img src="{% static 'images/ShirleyLN.png' %}" class="card-img-top p-1" alt="..." style="border-radius: 1.5rem;">
+<!--                            <div class="about-img" style="background-image: url('{% static 'images/shirley.png' %}');"></div>-->
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="about-subtext-2">“Neutrality isn’t neutral. Silence is weak. I give leaders tools to win in the storm.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <a href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/yt.jpg' %}');">
+                              <h2 class="text-501">Youtube Channel!</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/legacy.jpg' %}');">
+                              <h2 class="text-501">25 Year Legacy</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/tedx.png' %}');">
+                              <h2 class="text-501">TedX Talk</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/strategy.jpg' %}');">
+                              <h2 class="text-501">Strategy Assessment</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/leadership.jpg' %}');">
+                              <h2 class="text-501">Leadership and Coaching</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/podcast.jpg' %}');">
+                              <h2 class="text-501">Podcasts</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/thought.jpg' %}');">
+                              <h2 class="text-501">Thought Leadership Media</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="number-section-3">
+            <div class="container">
+                <h2 class="legacy-heading-2">LeaderNAVIGATOR Model</h2>
+
+                <div class="container mt-5">
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 5rem;">
+                        <div class="col">
+                            <div class="card border-0 bg-transparent h-100">
+                              <img src="{% static 'icons/ic_round-person-search.svg' %}" class="card-top-img border-0 p-0" alt="...">
+                              <div class="card-body p-0">
+                                <h3 class="text-505 mt-3">Consider the Source – Lead with Discernment</h3>
+                                <p class="text-506">
+                                    In an era of manipulation and noise, courageous leaders interrogate information before
+                                    reacting. They ask who benefits, what’s real, and how it impacts the business. Clear
+                                    discernment is the first act of leadership courage.
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-0 bg-transparent h-100">
+                              <img src="{% static 'icons/ic_baseline-add-link.svg' %}" class="card-top-img border-0 p-0" alt="...">
+                              <div class="card-body p-0">
+                                <h3 class="text-505 mt-3">Link to Business – Ground Every Decision in Impact</h3>
+                                <p class="text-506">
+                                    Courage means connecting principles to performance. Every choice—from strategy to
+                                    communication—should translate to growth, innovation, trust, and measurable advantage.
+                                     This is how courage moves markets, not just morale.
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-0 bg-transparent h-100">
+                              <img src="{% static 'icons/ic_baseline-shield.svg' %}" class="card-top-img border-0 p-0" alt="...">
+                              <div class="card-body p-0">
+                                <h3 class="text-505 mt-3">Countering Disinformation – Protect What’s True</h3>
+                                <p class="text-506">
+                                    Winning in an age of backlash requires confronting false narratives head-on. Courageous
+                                    leaders correct distortion with verified facts, defend truth as a business asset, and sustain
+                                    confidence with investors, employees, and customers alike.
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-0 bg-transparent h-100">
+                              <img src="{% static 'icons/mingcute_flash-fill.svg' %}" class="card-top-img border-0 p-0" alt="...">
+                              <div class="card-body p-0">
+                                <h3 class="text-505 mt-3">Agile Communication – Respond Fast, Lead Forward</h3>
+                                <p class="text-506">
+                                    When the cultural climate shifts, courageous leaders don’t freeze. They communicate
+                                    clearly, quickly, and strategically—framing facts in business language that neutralizes
+                                    propaganda and keeps brands steady under pressure.
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-0 bg-transparent h-100">
+                              <img src="{% static 'icons/material-symbols-light_award-star-rounded.svg' %}" class="card-top-img border-0 p-0" alt="...">
+                              <div class="card-body p-0">
+                                <h3 class="text-505 mt-3">Build the Courageous Leader Skillset – The Core Advantage</h3>
+                                <p class="text-506">
+                                    At the center of Leader Navigator is the courage to act decisively, stay composed in
+                                    uncertainty, and lead with conviction. This skillset defines leaders who don’t just survive
+                                    backlash—they transform it into competitive power.
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="number-section-1" style="background: #151515;">
+            <div class="container">
+                <h2 class="legacy-heading">The Navigator Series</h2>
+                <h2 class="text-head-105" style="margin-top: 5rem;">Not Workshops. High-Stakes Leadership Programs.</h2>
+                <p class="text-1010">
+                    Targeted, high‑voltage engagements that sharpen courage, reframe risk, and prepare leaders to hold
+                    steady when ideological sabotage comes knocking.
+                </p>
+
+                <div class="mt-5">
+                    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <div class="horizontal-line-1"></div>
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">Tier 1-Courage Readiness Lab™</h5>
+                                <p class="series-title-2 fst-italic fw-lighter">Focus: Early detection and message discipline before backlash begins.</p>
+                                <p class="series-title-2">High-velocity case analysis,narraƟve-mapping, and decision-alignment designed to create “muscle-memory” readiness before a backlash occurs.</p>
+                                <div class="card-footer bg-transparent border-0 p-0">
+                                    <div class="info-sec">
+                                        <img src="{% static 'icons/material-symbols_info.svg' %}">
+                                        <p class="text-666">Virtual or In Person, Two 2hr sessions</p>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <div class="horizontal-line-2"></div>
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">Tier 2 – Narrative Power Lab™</h5>
+                                <p class="series-title-2 fst-italic fw-lighter">Focus: Build narrative control and rapid-response systems before backlash hits.</p>
+                                <p class="series-title-2">Diagnose, design, and coaching sequence that embeds rapid-response infrastructure and message discipline across leadership roles.</p>
+                                <div class="card-footer bg-transparent border-0 p-0">
+                                    <div class="info-sec">
+                                        <img src="{% static 'icons/material-symbols_info.svg' %}">
+                                        <p class="text-666">Assessment + In-Person Strategy Intensive + 1:1 Courage Coaching</p>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <div class="horizontal-line-3"></div>
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">Tier 3 – Resilience Architecture Lab™</h5>
+                                <p class="series-title-2 fst-italic fw-lighter">Focus: Unite all critical functions to outsmart disinformation and reclaim the narrative.</p>
+                                <p class="series-title-2">Cross-functional labs, leadership coaching, and data-driven architecture sessions to institutionalize courage, speed, and truth across systems.</p>
+                                <div class="card-footer bg-transparent border-0 p-0">
+                                    <div class="info-sec">
+                                        <img src="{% static 'icons/material-symbols_info.svg' %}">
+                                        <p class="text-666">Two-Phase Working Series + Integrated Coaching + Rapid-Response Infrastructure Build</p>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="number-section-2" style="background: #0D0D0D;">
+            <div class="container">
+                <h2 class="legacy-heading-2 text-white">The Navigator Executive Briefs</h2>
+
+                <div class="mt-5">
+                    <div class="row row-cols-1 row-cols-md-4 g-3">
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <img src="{% static 'icons/ph_note-bold.svg' %}" class="card-top-img" alt="...">
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">5 Step Model Executive Framework</h5>
+                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <img src="{% static 'icons/tabler_gps-filled.svg' %}" class="card-top-img" alt="...">
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">W.O.K.E Executive Framework</h5>
+                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <img src="{% static 'icons/proicons_narrator.svg' %}" class="card-top-img" alt="...">
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">Narrative Disinformation Radar</h5>
+                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card series-card h-100">
+                              <img src="{% static 'icons/solar_volume-loud-bold.svg' %}" class="card-top-img" alt="...">
+                              <div class="card-body p-0">
+                                <h5 class="series-title-1">Message Playbook – Business Linkage</h5>
+                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="legacy-heading-2 text-white" style="margin-top: 5rem;">Backbone or Backslide.</h2>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col-md-7">
+                        <div class="card-body p-0">
+
+                            <p class="text-101 text-white">
+                                Executives aren’t judged by their ability to avoid storms, but to stand in them.
+                                Markets are no longer rewarding hedging; they reward conviction. Courage
+                                stabilizes. Retreat destabilizes.
+                            </p>
+
+                            <div class="row row-cols-1 row-cols-md-2 g-2 mt-5">
+                                <div class="col">
+                                    <div class="card number-card">
+                                        <div class="card-body p-0">
+                                            <h2 class="number-text-1 text-white">71%</h2>
+                                            <p class="number-text-2 text-white">lose trust when leaders stay silent</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card number-card-last">
+                                        <div class="card-body p-0 px-4">
+                                            <h2 class="number-text-1 text-white">2.3×</h2>
+                                            <p class="number-text-2 text-white">higher financial out performance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-102 text-white">Higher innovation revenue with diverse teams!</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="{% static 'images/image101.png' %}" class="img-fluid" alt="...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="number-section-3">
+            <div class="container">
+                <h2 class="main-heading-1">Leadership Engagement</h2>
+
+                <div class="row row-cols-1 row-cols-md-4 g-5 mt-5">
+                    <div class="col">
+                        <div class="card engage-card h-100">
+                            <img src="{% static 'icons/mdi_speak.svg' %}" class="card-top-img" alt="...">
+                            <div class="card-body p-0">
+                                <h2 class="series-title-1 text-dark">Keynote <br> Speaking</h2>
+                                <p class="series-title-2 text-dark">Data‑rich wake‑up calls—Target’s collapse, Bud Light’s dethronement—translated into boardroom moves.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card engage-card h-100">
+                            <img src="{% static 'icons/picon_tie.svg' %}" class="card-top-img" alt="...">
+                            <div class="card-body p-0">
+                                <h2 class="series-title-1 text-dark">Executive<br>Roundtables</h2>
+                                <p class="series-title-2 text-dark">Closed‑door sessions to run backlash scenarios, dissect propaganda cycles, and align message discipline.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card engage-card h-100">
+                            <img src="{% static 'icons/streamline-ultimate_idea-strategy.svg' %}" class="card-top-img" alt="...">
+                            <div class="card-body p-0">
+                                <h2 class="series-title-1 text-dark">Strategic Leadership <br>Consulting</h2>
+                                <p class="series-title-2 text-dark">Bespoke playbooks, risk maps, and communication choreography anchored in Courage Compass and Courage to Commit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card engage-card h-100">
+                            <img src="{% static 'icons/pajamas_media.svg' %}" class="card-top-img" alt="...">
+                            <div class="card-body p-0">
+                                <h2 class="series-title-1 text-dark">Media & Thought <br>Leadership</h2>
+                                <p class="series-title-2 text-dark">Position leaders to own the narrative before others define it—public positioning and message consistency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <section class="number-section-2" style="background: #151515;" id="books">
+            <div class="container">
+                <h2 class="legacy-heading">Books</h2>
+
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-4 mt-3">
+                    {% for book in books %}
+                    <div class="col">
+                        <div class="card book-card">
+                          <div class="books-img" style="background-image: url('{{ book.image.url }}');"></div>
+                          <div class="card-body p-0">
+                            <p class="book-text-3">
+                                {% if book.preorder %}
+                                  <span class="me-2">PREORDER!</span>
+                                {% endif %}
+                                Author: {{ book.author }}
+                            </p>
+                            <h5 class="book-text-1">{{ book.title }}</h5>
+                            <p class="book-text-2">{{ book.description|truncatewords:20 }}</p>
+                            <a href="#" class="book-link">Request excerpt →</a>
+                            <!--<a href="#" class="book-link" data-bs-toggle="modal" data-bs-target="#excerptModal{{ book.id }}">Request excerpt →</a>-->
+                          </div>
+                        </div>
+                    </div>
+
+
+                    <!--MODAL FOR BOOKS SECTION--->
+                    <div class="modal fade" id="excerptModal{{ book.id }}" tabindex="-1" aria-labelledby="excerptModalLabel{{ book.id }}" aria-hidden="true">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content" style="background: #151515;">
+                          <div class="modal-header border-0">
+                            <button type="button" class="btn-close custom-close-icon" data-bs-dismiss="modal" aria-label="Close">
+                              <img src="{% static 'icons/icon-park-outline_close-one.svg' %}" alt="Close">
+                            </button>
+                          </div>
+                          <div class="modal-body book-modal ">
+                              <div class="row row-cols-1 row-cols-md-2 g-5">
+                                  <div class="col-md-8">
+                                        <h2 class="text-601 text-white">{{ book.title }}</h2>
+                                      <p class="text-602 text-white">{{ book.description }}</p>
+                                    <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+                                        <button type="button" class="btn btn-lg custom-btn-solid">Buy the Book</button>
+                                        <button type="button" class="btn btn-lg custom-btn-outline">Request an Excerpt</button>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="books-img" style="background-image: url('{{ book.image.url }}');"></div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section class="number-section-3">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2">
+                    <div class="col-md-9">
+                        <h2 class="main-heading-1">The numbers say everything!</h2>
+                        <p class="sub-heading-1">Trusted by leaders at BASF, Pfizer, Michelin, 3M, U.S. Bank, ESPN—and more.</p>
+
+                        <div class="row row-cols-1 row-cols-md-3 g-2 mt-5">
+                            <div class="col">
+                                <div class="card number-card">
+                                    <div class="card-body p-0">
+                                        <h2 class="number-text-1">25+</h2>
+                                        <p class="number-text-2">Years advising Fortune 500 companies</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card number-card">
+                                    <div class="card-body p-0 px-4">
+                                        <h2 class="number-text-1">22k</h2>
+                                        <p class="number-text-2">Leaders Trained</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card number-card-last">
+                                    <div class="card-body p-0 px-4">
+                                        <h2 class="number-text-1">4</h2>
+                                        <p class="number-text-2">Books Authored</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+<!--                    <div class="col-md-3">-->
+<!--                        <img src="{% static 'images/fluent_arrow-up-12-filled.png' %}" style="height: 20rem;">-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+
+        <section class="number-section-1">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col-md-4">
+                        <h2 class="legacy-heading">Case Studies</h2>
+
+                        <div class="card border-0 bg-transparent" style="margin-top: 5rem;">
+                            <div class="card-body p-0">
+                              <h3 class="text-610">Leadership and Coaching Case Studies</h3>
+                              <p class="text-611">Here’s a short descripton</p>
+                              <a class="text-612" href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank">Know more →</a>
+                            </div>
+                        </div>
+
+                        <div class="card border-0 bg-transparent" style="margin-top: 3rem;">
+                            <div class="card-body p-0">
+                              <h3 class="text-610">Assessment and Strategy Case Studies</h3>
+                              <p class="text-611">Here’s a short descripton</p>
+                              <a class="text-612" href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank">Know more →</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="legacy-heading">Our Clients</h2>
+
+                        <div class="row row-cols-2 row-cols-sm-4 row-cols-md-4 g-0" style="margin-top: 5rem;">
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/pfizer.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/basf_logo.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/3m.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/us_bank_logo.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/supervalu_logo.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/logo-brand.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/frito-lay_logo.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card client-card h-100" style="max-width: 13.5rem;">
+                                  <img src="{% static 'icons/espn.svg' %}" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+    {% endblock %}
+
+
+
+
+<!--        <section class="number-section-3">-->
+
+<!--            <div class="container">-->
+<!--                <h2 class="legacy-heading">Legacy → Now</h2>-->
+<!--                <div class="new-div d-flex justify-content-center" style="margin-top: 5rem;">-->
+
+<!--                    <div class="card mb-3 border-0 bg-transparent" style="max-width: 70rem;">-->
+<!--                      <div class="row g-5">-->
+<!--                        <div class="col-md-4">-->
+<!--                          <img src="{% static 'images/LN-grey-old.png' %}" class="img-fluid rounded-start" alt="...">-->
+<!--                        </div>-->
+<!--                        <div class="col-md-8">-->
+<!--                          <div class="card-body">-->
+<!--                            <h5 class="legacy-title-2">Legacy: InclusionINC</h5>-->
+<!--                            <div class="list-section-1">-->
+<!--                                <ul class="investor-list-1">-->
+<!--                                    <li>Validated inclusive leadership behaviors globally</li>-->
+<!--                                    <li>InclusionSCORECARD® & Inclusive Leader 360® diagnostics</li>-->
+<!--                                    <li>Linked inclusion to KPIs across Fortune 500s</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--                <div class="new-div d-flex justify-content-center" style="margin-top: 5rem;">-->
+
+<!--                    <div class="card mb-3 border-0 bg-transparent" style="max-width: 70rem;">-->
+<!--                      <div class="row g-5">-->
+<!--                        <div class="col-md-4">-->
+<!--                          <img src="{% static 'images/LN-grey-new.png' %}" class="img-fluid rounded-start" alt="...">-->
+<!--                        </div>-->
+<!--                        <div class="col-md-8">-->
+<!--                          <div class="card-body">-->
+<!--                            <h5 class="legacy-title-2-new">Now: Leader Navigator™</h5>-->
+<!--                            <div class="list-section-1">-->
+<!--                                <ul class="investor-list-1">-->
+<!--                                    <li>Frameworks for backlash‑era resilience</li>-->
+<!--                                    <li>InclusionSCORECARD® & Inclusive Leader 360® diagnostics</li>-->
+<!--                                    <li>Linked inclusion to KPIs across Fortune 500s</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--            </div>-->
+
+<!--        </section>-->
