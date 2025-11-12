@@ -7,9 +7,9 @@
 
         <section class="header" style="background-image: linear-gradient(to top, rgba(21,21,21,1.5), transparent), url('{% static 'images/Footer.png' %}');">
             <div class="container">
-                <div class="" style="padding: 3.9rem 0;">
-                    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-5 align-items-center">
-                        <div class="col-md-7">
+                <div class="" style="padding: 2rem 0;">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-sm-12 col-md-7">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-body p-0">
                                     <h1 class="header-text">How Courageous Leaders Win in an Age of Backlash</h1>
@@ -27,17 +27,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5 d-flex flex-column align-items-end">
-                            <div class="video-card-container ">
-                                <video id="headerVideo" class="card-video-bg" autoplay muted loop playsinline preload="none" poster="{% static 'images/video-poster.jpg' %}">
-                                    <source src="{% static 'videos/sample.mp4' %}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                        <div class="col-sm-12 col-md-5 d-flex flex-column align-items-end">
 
-                                <div id="videoControl" class="video-overlay-icon paused-icon" data-pause-src="{% static 'images/pause.png' %}" data-play-src="{% static 'images/play.png' %}">
-                                    <img id="controlIcon" src="{% static 'images/pause.png' %}" alt="Pause">
-                                </div>
+                            <div class="video-card-container" id="videoContainer">
+                              <video id="headerVideo" class="card-video-bg" autoplay muted loop playsinline preload="none"
+                                poster="{% static 'images/video-poster.jpg' %}">
+                                <source src="{% static 'videos/1Cultural Change_ 25 YearsofImpact&USEconomy.mp4' %}" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+
+                              <!-- Hover hint -->
+                              <div class="video-cursor" id="videoCursor">
+                                <span><em>Click play</em><br>to hear</span>
+                              </div>
+
+                              <div id="videoControl" class="video-overlay-icon paused-icon"
+                                data-pause-src="{% static 'images/pause.png' %}"
+                                data-play-src="{% static 'images/play.png' %}">
+                                <img id="controlIcon" src="{% static 'images/pause.png' %}" alt="Pause">
+                              </div>
+
+                              <!-- Next/Prev buttons -->
+                              <div class="video-nav"
+                                data-videos='["{% static 'videos/1Cultural Change_ 25 YearsofImpact&USEconomy.mp4' %}",
+                                  "{% static 'videos/2Leadership Communication_ Navigating Disinformation & Silence.mp4' %}",
+                                  "{% static 'videos/3Leader Navigator_ Launching Executive Business Briefings.mp4' %}"
+                                ]'>
+                                <button id="prevVideo" class="nav-btn"><img src="{% static 'icons/material-symbols-light_arrow-circle-left.svg' %}"></button>
+                                <button id="nextVideo" class="nav-btn"><img src="{% static 'icons/material-symbols-light_arrow-circle-right.svg' %}"></button>
+                              </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -155,14 +175,14 @@
             <div class="container mt-5">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
-                        <a href="https://www.youtube.com/watch?v=vN66TUu0aL0" target="_blank" style="text-decoration: none;">
+                        <a href="https://www.youtube.com/results?search_query=leader+navigator" target="_blank" style="text-decoration: none;">
                             <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/yt.jpg' %}');">
                               <h2 class="text-501">Youtube Channel!</h2>
                             </div>
                         </a>
                     </div>
                     <div class="col">
-                        <a href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank" style="text-decoration: none;">
+                        <a href="{% static 'pdfs/legacy.pdf' %}" target="_blank" style="text-decoration: none;">
                             <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/legacy.jpg' %}');">
                               <h2 class="text-501">25 Year Legacy</h2>
                             </div>
@@ -176,28 +196,28 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank" style="text-decoration: none;">
+                        <a href="#" target="_blank" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#strategicModal">
                             <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/strategy.jpg' %}');">
                               <h2 class="text-501">Strategy Assessment</h2>
                             </div>
                         </a>
                     </div>
                     <div class="col">
-                        <a href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank" style="text-decoration: none;">
+                        <a href="#" target="_blank" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#strategicModal">
                             <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/leadership.jpg' %}');">
                               <h2 class="text-501">Leadership and Coaching</h2>
                             </div>
                         </a>
                     </div>
+<!--                    <div class="col">-->
+<!--                        <a href="#" target="_blank" style="text-decoration: none;">-->
+<!--                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/podcast.jpg' %}');">-->
+<!--                              <h2 class="text-501">Podcasts</h2>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
                     <div class="col">
-                        <a href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank" style="text-decoration: none;">
-                            <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/podcast.jpg' %}');">
-                              <h2 class="text-501">Podcasts</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://carrot-turkey-hnxb.squarespace.com/config/website" target="_blank" style="text-decoration: none;">
+                        <a href="#" target="_blank" style="text-decoration: none;">
                             <div class="card about-2-card" style="background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0) 60%), url('{% static 'images/thought.jpg' %}');">
                               <h2 class="text-501">Thought Leadership Media</h2>
                             </div>
@@ -210,7 +230,7 @@
 
         <section class="number-section-3">
             <div class="container">
-                <h2 class="legacy-heading-2">Leader NAVIGATOR Model</h2>
+                <h2 class="legacy-heading-2">Leader Navigator Model</h2>
 
                 <div class="container mt-5">
 
@@ -305,10 +325,10 @@
                                 <h5 class="series-title-1">Tier 1-Courage Readiness Lab™</h5>
                                 <p class="series-title-2 fst-italic fw-lighter">Focus: Early detection and message discipline before backlash begins.</p>
                                 <p class="series-title-2">High-velocity case analysis,narraƟve-mapping, and decision-alignment designed to create “muscle-memory” readiness before a backlash occurs.</p>
-                                <div class="card-footer bg-transparent border-0 p-0">
+                                <div class="card-footer bg-transparent border-0 p-0 d-none">
                                     <div class="info-sec">
                                         <img src="{% static 'icons/material-symbols_info.svg' %}">
-                                        <p class="text-666">Virtual or In Person, Two 2hr sessions</p>
+                                        <p class="text-666 ">Virtual or In Person, Two 2hr sessions</p>
                                     </div>
                                 </div>
                               </div>
@@ -321,7 +341,7 @@
                                 <h5 class="series-title-1">Tier 2 – Narrative Power Lab™</h5>
                                 <p class="series-title-2 fst-italic fw-lighter">Focus: Build narrative control and rapid-response systems before backlash hits.</p>
                                 <p class="series-title-2">Diagnose, design, and coaching sequence that embeds rapid-response infrastructure and message discipline across leadership roles.</p>
-                                <div class="card-footer bg-transparent border-0 p-0">
+                                <div class="card-footer bg-transparent border-0 p-0 d-none">
                                     <div class="info-sec">
                                         <img src="{% static 'icons/material-symbols_info.svg' %}">
                                         <p class="text-666">Assessment + In-Person Strategy Intensive + 1:1 Courage Coaching</p>
@@ -337,7 +357,7 @@
                                 <h5 class="series-title-1">Tier 3 – Resilience Architecture Lab™</h5>
                                 <p class="series-title-2 fst-italic fw-lighter">Focus: Unite all critical functions to outsmart disinformation and reclaim the narrative.</p>
                                 <p class="series-title-2">Cross-functional labs, leadership coaching, and data-driven architecture sessions to institutionalize courage, speed, and truth across systems.</p>
-                                <div class="card-footer bg-transparent border-0 p-0">
+                                <div class="card-footer bg-transparent border-0 p-0 d-none">
                                     <div class="info-sec">
                                         <img src="{% static 'icons/material-symbols_info.svg' %}">
                                         <p class="text-666">Two-Phase Working Series + Integrated Coaching + Rapid-Response Infrastructure Build</p>
@@ -348,6 +368,10 @@
                         </div>
                     </div>
                 </div>
+
+                <p class="text-1010" style="max-width: none;">
+                    The Leader Navigator™ Series is the executive system for leading through backlash, disinformation, and noise. Each module translates complexity into clarity — helping leaders stay strategic, courageous, and calm when the pressure spikes.
+                </p>
 
             </div>
         </section>
@@ -363,7 +387,7 @@
                               <img src="{% static 'icons/ph_note-bold.svg' %}" class="card-top-img" alt="...">
                               <div class="card-body p-0">
                                 <h5 class="series-title-1">5 Step Model Executive Framework</h5>
-                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                                <p class="series-title-2 d-none">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
                               </div>
                             </div>
                         </div>
@@ -371,8 +395,8 @@
                             <div class="card series-card h-100">
                               <img src="{% static 'icons/tabler_gps-filled.svg' %}" class="card-top-img" alt="...">
                               <div class="card-body p-0">
-                                <h5 class="series-title-1">W.O.K.E Executive Framework</h5>
-                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                                <h5 class="series-title-1">W.O.K.E. Executive Framework</h5>
+                                <p class="series-title-2 d-none">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
                               </div>
                             </div>
                         </div>
@@ -381,7 +405,7 @@
                               <img src="{% static 'icons/proicons_narrator.svg' %}" class="card-top-img" alt="...">
                               <div class="card-body p-0">
                                 <h5 class="series-title-1">Narrative Disinformation Radar</h5>
-                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                                <p class="series-title-2 d-none">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
                               </div>
                             </div>
                         </div>
@@ -390,12 +414,61 @@
                               <img src="{% static 'icons/solar_volume-loud-bold.svg' %}" class="card-top-img" alt="...">
                               <div class="card-body p-0">
                                 <h5 class="series-title-1">Message Playbook – Business Linkage</h5>
-                                <p class="series-title-2">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
+                                <p class="series-title-2 d-none">Step‑by‑step executive moves to counter backlash and control the narrative.</p>
                               </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+                <section class="number-section-3">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2">
+                    <div class="col-md-9">
+                        <h2 class="main-heading-1">The numbers say everything!</h2>
+                        <p class="sub-heading-1">Trusted by leaders at BASF, Pfizer, Michelin, 3M, U.S. Bank, ESPN—and more.</p>
+
+                        <div class="row row-cols-1 row-cols-md-3 g-2 mt-5">
+                            <div class="col">
+                                <div class="card number-card">
+                                    <div class="card-body p-0">
+                                        <h2 class="number-text-1">25+</h2>
+                                        <p class="number-text-2">Years advising Fortune 500 companies</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card number-card">
+                                    <div class="card-body p-0 px-4">
+                                        <h2 class="number-text-1">22k</h2>
+                                        <p class="number-text-2">Leaders Trained</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card number-card-last">
+                                    <div class="card-body p-0 px-4">
+                                        <h2 class="number-text-1">4</h2>
+                                        <p class="number-text-2">Books Authored</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+<!--                    <div class="col-md-3">-->
+<!--                        <img src="{% static 'images/fluent_arrow-up-12-filled.png' %}" style="height: 20rem;">-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="number-section-2" style="background: #0D0D0D;">
+            <div class="container">
 
                 <h2 class="legacy-heading-2 text-white" style="margin-top: 5rem;">Backbone or Backslide.</h2>
                 <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -438,7 +511,8 @@
             </div>
         </section>
 
-        <section class="number-section-3">
+
+        <section class="number-section-3 d-none">
             <div class="container">
                 <h2 class="main-heading-1">Leadership Engagement</h2>
 
@@ -504,116 +578,45 @@
                             </p>
                             <h5 class="book-text-1">{{ book.title }}</h5>
                             <p class="book-text-2">{{ book.description|truncatewords:20 }}</p>
-                            <a href="#" class="book-link">Request excerpt →</a>
+                            <a href="{{ book.link }}" class="book-link" target="_blank">Request excerpt →</a>
                             <!--<a href="#" class="book-link" data-bs-toggle="modal" data-bs-target="#excerptModal{{ book.id }}">Request excerpt →</a>-->
                           </div>
                         </div>
                     </div>
-
-
-                    <!--MODAL FOR BOOKS SECTION--->
-                    <div class="modal fade" id="excerptModal{{ book.id }}" tabindex="-1" aria-labelledby="excerptModalLabel{{ book.id }}" aria-hidden="true">
-                      <div class="modal-dialog modal-xl">
-                        <div class="modal-content" style="background: #151515;">
-                          <div class="modal-header border-0">
-                            <button type="button" class="btn-close custom-close-icon" data-bs-dismiss="modal" aria-label="Close">
-                              <img src="{% static 'icons/icon-park-outline_close-one.svg' %}" alt="Close">
-                            </button>
-                          </div>
-                          <div class="modal-body book-modal ">
-                              <div class="row row-cols-1 row-cols-md-2 g-5">
-                                  <div class="col-md-8">
-                                        <h2 class="text-601 text-white">{{ book.title }}</h2>
-                                      <p class="text-602 text-white">{{ book.description }}</p>
-                                    <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
-                                        <button type="button" class="btn btn-lg custom-btn-solid">Buy the Book</button>
-                                        <button type="button" class="btn btn-lg custom-btn-outline">Request an Excerpt</button>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div class="books-img" style="background-image: url('{{ book.image.url }}');"></div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
                     {% endfor %}
-
 
                     <div class="col">
                         <div class="card book-card">
-                            <div class="books-img position-relative" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%), url('{% static 'images/img5.jpg' %}') lightgray 0px 0px / 100% 100% no-repeat;" ></div>
+                            <div class="books-img-1 position-relative" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%), url('{% static 'images/Picture5.png' %}') lightgray 0px 0px / 100% 100% no-repeat;" ></div>
                                 <div class="card-img-overlay d-flex justify-content-center align-items-center text-white">COMING SOON!</div>
                             </div>
 
                             <div class="card-body p-0">
                             <p class="book-text-3">
-                                Author: Shirley Engelmeier
+                                <span class="me-2">PREORDER!</span>Author: Shirley Engelmeier
                             </p>
-                            <h5 class="book-text-1">Deliberate Disruption</h5>
-                            <p class="book-text-2">Unraveling anti‑DEI ideology and getting back to why DEI works (2024).</p>
+                            <h5 class="book-text-1">How Corageous Leaders win in an age of backslash</h5>
+                            <p class="book-text-2">Description</p>
                             <a href="#" class="book-link">Request excerpt →</a>
                             <!--<a href="#" class="book-link" data-bs-toggle="modal" data-bs-target="#excerptModal{{ book.id }}">Request excerpt →</a>-->
                             </div>
                         </div>
-                    </div>  
-
-                </div>
-
-            </div>
-        </section>
-
-
-
-        <section class="number-section-3">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-md-2">
-                    <div class="col-md-9">
-                        <h2 class="main-heading-1">The numbers say everything!</h2>
-                        <p class="sub-heading-1">Trusted by leaders at BASF, Pfizer, Michelin, 3M, U.S. Bank, ESPN—and more.</p>
-
-                        <div class="row row-cols-1 row-cols-md-3 g-2 mt-5">
-                            <div class="col">
-                                <div class="card number-card">
-                                    <div class="card-body p-0">
-                                        <h2 class="number-text-1">25+</h2>
-                                        <p class="number-text-2">Years advising Fortune 500 companies</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card number-card">
-                                    <div class="card-body p-0 px-4">
-                                        <h2 class="number-text-1">22k</h2>
-                                        <p class="number-text-2">Leaders Trained</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card number-card-last">
-                                    <div class="card-body p-0 px-4">
-                                        <h2 class="number-text-1">4</h2>
-                                        <p class="number-text-2">Books Authored</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-<!--                    <div class="col-md-3">-->
-<!--                        <img src="{% static 'images/fluent_arrow-up-12-filled.png' %}" style="height: 20rem;">-->
-<!--                    </div>-->
+
                 </div>
+
             </div>
         </section>
+
+
+
+
 
         <section class="number-section-1">
             <div class="container">
 
                 <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col-md-4">
+                    <div class="col-md-4 d-none">
                         <h2 class="legacy-heading">Case Studies</h2>
 
                         <div class="card border-0 bg-transparent" style="margin-top: 5rem;">
@@ -684,6 +687,82 @@
 
             </div>
         </section>
+
+
+
+
+        <!-- Modal for Strategic Assessment-->
+        <div class="modal fade" id="strategicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <div>
+                  <h2 class="contact-section-title">Strategic Assessment</h2>
+                </div>
+                <button type="button" class="btn-close custom-close-icon" data-bs-dismiss="modal" aria-label="Close">
+                  <img src="{% static 'icons/icon-park-outline_close-one.svg' %}" alt="Close">
+                </button>
+              </div>
+                <div class="modal-body">
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                      <div class="accordion-item">
+                        <h1 class="accordion-header ">
+                          <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Case Study 1: Large National Construction Firm
+                          </button>
+                        </h1>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                          <div class="accordion-body">
+                              <p><span class="fw-bold">Challenge:</span> A leading national construction firm faced challenges in recruiting and retaining diverse talent,
+                                  particularly in project management and leadership roles. The organization sought to enhance its diversity pipeline
+                                  while maintaining excellence in a competitive industry.
+                              </p>
+                              <p><span class="fw-bold">Assessment & Strategy:</span> We began with a comprehensive assessment of their existing talent acquisition and retention processes, identifying key areas where biases and systemic barriers were impacting diversity outcomes. Based on these insights, we developed a tailored strategy that included restructuring recruitment processes, implementing structured interview protocols, and launching a leadership development program focused on diversity.
+                              </p>
+                              <p><span class="fw-bold">Results:</span>Within 18 months, the firm saw a 16% increase in diverse hires, particularly in management roles. The inclusive leadership program led to higher employee engagement scores and improved retention rates among underrepresented groups.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Case Study 2: Electrical Engineering and Construction Company
+                          </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                              <p><span class="fw-bold">Challenge:</span> An engineering and construction company faced resistance to hiring and promoting diverse talent, with some leaders expressing concerns that doing so would be “lowering their standards.”
+                              </p>
+                              <p><span class="fw-bold">Assessment & Strategy:</span> Through a comprehensive assessment of leadership attitudes and team dynamics, we uncovered deep-rooted biases and misconceptions about what constitutes talent and qualifications. These biases were contributing to systemic barriers within the organization.
+                              </p>
+                              <p><span class="fw-bold">Results:</span>By implementing targeted one-on-one coaching sessions with key leaders, we were able to dismantle the misconception that diversity equated to lower standards. This coaching helped shift mindsets, allowing leaders to recognize and appreciate the value of diverse perspectives and talents.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                           Case Study 3: National Infrastructure and Construction Company
+                          </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                              <p><span class="fw-bold">Challenge:</span> A national infrastructure company was facing resistance to its DE&I initiatives, particularly among middle management. The company needed a strategy to demonstrate the business value of inclusion and drive leadership buy-in.
+                              </p>
+                              <p><span class="fw-bold">Assessment & Strategy:</span> We conducted a thorough assessment of leadership attitudes toward DE&I, identifying areas of resistance and knowledge gaps. Leveraging this data, we crafted a business-centric DE&I strategy aligned with company objectives.
+                              </p>
+                              <p><span class="fw-bold">Results:</span>Middle management buy-in grew significantly, with a 19% increase in engagement with DE&I training initiatives as measured by employee engagement.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+
+            </div>
+        </div>
 
 
 

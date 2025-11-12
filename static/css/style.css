@@ -223,8 +223,8 @@ html {
 /* 1. The Main Container Styling */
 .video-card-container {
     position: relative;
-    max-width: 40rem;
-    height: 30.8125rem;
+    max-width: 25rem;
+    height: 45rem;
     border-radius: 1.5rem;
     /*overflow: hidden;*/
     background-color: #fff8f9;
@@ -487,7 +487,7 @@ html {
 .about-subtext-1{
     color: #616262;
     font-family: Inter;
-    font-size: 0.875rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1rem; /* 114.286% */
@@ -513,7 +513,6 @@ html {
 }
 
 .about-main-text span{
-    font-family: "Lora";
     color: #E7000B;
     leading-trim: both;
     text-edge: cap;
@@ -539,11 +538,11 @@ html {
 .about-subtext-2{
     color: #EFEFEF;
     font-family: "Lora";
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 350;
     line-height: 2rem; /* 150% */
-    max-width: 17rem;
+    max-width: 20rem;
     border-left: 4px solid #E7000B;
     padding-left: 1.56rem;
 }
@@ -651,19 +650,19 @@ html {
     max-width: 20rem;
     color: #0D0D0D;
     font-family: Inter;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 1.75rem; /* 140% */
+    line-height: 2.2rem; /* 140% */
 }
 .text-506{
     max-width: 24rem;
     color: #0D0D0D;
     font-family: Inter;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.5rem; /* 150% */
+    line-height: 1.8rem; /* 150% */
     letter-spacing: -0.03rem;
     margin-top: 0.3rem;
 }
@@ -762,10 +761,10 @@ html {
 .series-title-1{
     color: #D9E2F1;
     font-family: 'Inter';
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 1.75rem; /* 140% */
+    line-height: 2.2rem; /* 140% */
     margin-top: 1.06rem;
     cursor: default;
 }
@@ -1200,7 +1199,7 @@ html {
 }
 
 .footer-heading {
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: #000000;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -1216,7 +1215,7 @@ html {
 .resource-list li a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.5;
     font-family: 'Inter', sans-serif;
     transition: color 0.3s;
@@ -1241,4 +1240,122 @@ color: #ffffff;
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+
+/**new*/
+.video-nav {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.nav-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,1);
+}
+
+.arrow-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  filter: brightness(0) invert(1); /* Makes icon white if it's black by default */
+  pointer-events: none; /* Prevents icon from blocking button clicks */
+}
+
+.card-video-bg {
+  transition: opacity 0.6s ease-in-out; /* smooth fade effect */
+}
+
+.card-video-bg.fade-out {
+  opacity: 0;
+}
+
+.card-video-bg.fade-in {
+  opacity: 1;
+}
+
+/* Hide default cursor over the video container */
+#videoContainer {
+  cursor: none;
+  position: relative;
+}
+
+/* Custom cursor style */
+.video-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  z-index: 999;
+  line-height: 0.5rem;
+}
+
+.video-cursor span {
+  display: block;
+  line-height: 0.9rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.video-cursor em {
+  font-style: italic;
+  font-size: 1.5rem;
+  display: block;
+  line-height: 1.2rem;
+}
+
+/* Fade-out state */
+.video-cursor.hide {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+
+.accordion-button:not(.collapsed){
+    background: none !important;
+}
+
+.accordion-button:focus{
+    box-shadow: none !important;
+}
+
+.books-img-1{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 28rem;
+    border-radius: 1.25rem;
 }
